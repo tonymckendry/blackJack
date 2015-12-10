@@ -21,3 +21,7 @@ $("#playerNameButton").click(function(){
     $("#playerNameRight").css("margin", "0 auto");
   }
 })
+
+$("#startGame").click(function(){
+  
+})
