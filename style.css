@@ -13,4 +13,28 @@ body {
   border: 1px solid gray;
   box-shadow: 3px 3px 8px rgba(0,0,0,.5);
   border-radius: 5px;
+  overflow: hidden;
+}
+
+#playerNameLeft{
+  float: left;
+  width: 40%;
+  display: block;
+}
+
+#playerInput{
+  margin: 10px;
+  height: 2em;
+  font-size: 1em;
+}
+
+#playerNameRight{
+  float: right;
+  width: 50%;
+  list-style-position: inside;
+
+}
+
+#playerNameRight ol{
+  margin-right: 30px;
 }

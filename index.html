@@ -7,9 +7,20 @@
   </head>
   <body>
     <div id="playerName">
-      <p>Enter your name:</p>
-      <input type="text" placeholder="Player One">
+      <div id=playerNameLeft>
+        <p>Enter your name:</p>
+        <input type="text" id=playerInput placeholder="Player 1">
+        <br>
+        <button id=playerNameButton>Submit Name</button>
+      </div>
+      <div id=playerNameRight>
+        <p>Players:</p>
+        <hr>
+        <ol id=playerNameList>
+        </ol>
+      </div>
     </div>
     <script type="text/javascript" src=https://code.jquery.com/jquery-2.1.4.min.js></script>
+    <script src=app.js></script>
   </body>
 </html>
