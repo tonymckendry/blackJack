@@ -22,6 +22,17 @@ $("#playerNameButton").click(function(){
   }
 })
 
-$("#startGame").click(function(){
-  
+$(document).on("click", "#startGame", function(){
+  $("#playerName").remove();
+  console.log("count is "+count)
+  $("#dealerArea").append("<div class=dealer></div><br><span id=dealer>Dealer</span>")
+  if (count == 2){
+    $("#playerArea").append("<span id=playerOne>"+ players[0] + "</span><br><div class=onePlayer></div>")
+    console.log("Single Player working")
+  }
+  else if (count == 3){
+    $("#playerArea").append("<div class=twoPlayer></div>")
+    $("#playerArea").append("<div class=twoPlayer></div>")
+    console.log("Two Player working")
+  }
 })

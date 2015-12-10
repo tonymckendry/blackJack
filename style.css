@@ -38,3 +38,61 @@ body {
 #playerNameRight ol{
   margin-right: 30px;
 }
+
+.dealer{
+  width: 30vw;
+  height: 25vh;
+  margin: 0 auto;
+  background-color: lightgray;
+  position: absolute;
+  top: 10px;
+  left: 35vw;
+  border: solid 3px sienna;
+}
+
+#dealer{
+  color: white;
+  position: absolute;
+  top: 27vh;
+  left: 49vw;
+
+}
+
+#playerArea{
+  position: absolute;
+  bottom: 0;
+  background-color: pink;
+  width: 100vw;
+  text-align: center;
+}
+
+.onePlayer{
+  width: 30vw;
+  height: 25vh;
+  margin: 0 auto;
+  background-color: lightgray;
+  position: absolute;
+  bottom: 10px;
+  left: 35vw;
+  border: solid 3px sienna;
+}
+
+#playerOne{
+  color: white;
+  position: absolute;
+  bottom: 27vh;
+  left: 49vw;
+}
+
+.twoPlayer{
+  width: 30vw;
+  height: 25vh;
+  margin: 0 auto;
+  background-color: lightgray;
+  display: inline-block;
+  bottom: 10px;
+  left: 35vw;
+  border: solid 3px sienna;
+  vertical-align: middle;
+  margin: 40px;
+}
