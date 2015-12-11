@@ -70,20 +70,75 @@ $(document).on("click", "#deal", function(){
     var rand = Math.round((Math.random()*(13-1)+1));
     console.log("rand is " + rand)
     scores[i] = rand;
-    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button id=hit" + i + ">HIT</button>")
+    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button class=hit id=hit" + i + ">HIT</button>")
     if (rand > 10) {
-      score = 10;
+      rand = 10;
       console.log("changed" +  players[i] + "'s score to 10");
     }
+    console.log("Player " + players[i] + " value is " + scores[i])
+    }
+  for (var i = 0; i < players.length; i++) {
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("rand is " + rand)
+    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button class=hit id=hit" + i + ">HIT</button>")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed" +  players[i] + "'s score to 10");
+    }
+    scores[i] += rand;
     console.log("Player " + players[i] + " value is " + scores[i])
     }
     $("#deal").remove();
     $("#"+i).append("<button id=hit" + i + ">HIT</button>")
 })
 
+$(document).on("click", ".hit", function(){
+    var rand = Math.round((Math.random()*(13-1)+1));
+    if (scores[0] <= 16){
+      console.log("Dealer's next card is " + rand);
+      $("#0").append("<img class=card src=cards/" + rand + ".png>");
+      console.log("Dealer's score is " + scores[0] + " before the card is added")
+      if (rand > 10) {
+        rand = 10;
+        console.log("changed rand to 10");
+      };
+      scores[0] += rand;
+      console.log("Dealer's score is " + scores[0] + " after the card is added");
+    }
+    checkDealer();
+});
+
+var checkDealer = function(){
+  if (scores[0] > 21){
+    for (var i = 1; i < scores.length; i++) {
+      if(scores[i] < 21){
+        $("#"+i).css("background-color", "lime");
+        }
+      else if (scores[i] > 21){
+        $("#"+i).css("background-color", "red");
+      }
+    }
+      $(".threePlayer img").remove();
+      $(".dealer").css("background-color", "red")
+      }
+    }
+var checkPlayers = function(){
+    for (var i = 1; i < scores.length; i++) {
+      if (scores[i] == 21){
+        $("#"+i).css("background-color", "lime");
+        $("#" + i + " img").remove();
+      }
+      else if (scores[i] > 21){
+        $("#"+i).css("background-color", "red");
+        $("#" + i + " img").remove();
+      }
+    }
+}
+
+
 $(document).on("click", "#hit1", function(){
     var rand = Math.round((Math.random()*(13-1)+1));
-    console.log("Player 1's second card is " + rand);
+    console.log("Player 1's next card is " + rand);
     $("#1").append("<img class=card src=cards/" + rand + ".png>");
     console.log("Player 1's score is " + scores[1] + " before the card is added")
     if (rand > 10) {
@@ -92,5 +147,62 @@ $(document).on("click", "#hit1", function(){
     };
     scores[1] += rand;
     console.log("Player 1's score is " + scores[1] + " after the card is added");
+    checkPlayers();
+  }
+)
+$(document).on("click", "#hit2", function(){
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("Player 2's next card is " + rand);
+    $("#2").append("<img class=card src=cards/" + rand + ".png>");
+    console.log("Player 2's score is " + scores[2] + " before the card is added")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed rand to 10");
+    };
+    scores[2] += rand;
+    console.log("Player 2's score is " + scores[2] + " after the card is added");
+    checkPlayers();
+  }
+)
+$(document).on("click", "#hit3", function(){
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("Player 1's next card is " + rand);
+    $("#3").append("<img class=card src=cards/" + rand + ".png>");
+    console.log("Player 1's score is " + scores[3] + " before the card is added")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed rand to 10");
+    };
+    scores[3] += rand;
+    console.log("Player 1's score is " + scores[3] + " after the card is added");
+    checkPlayers();
+  }
+)
+$(document).on("click", "#hit4", function(){
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("Player 4's next card is " + rand);
+    $("#4").append("<img class=card src=cards/" + rand + ".png>");
+    console.log("Player 4's score is " + scores[4] + " before the card is added")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed rand to 10");
+    };
+    scores[4] += rand;
+    console.log("Player 4's score is " + scores[4] + " after the card is added");
+    checkPlayers();
+  }
+)
+$(document).on("click", "#hit5", function(){
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("Player 5's next card is " + rand);
+    $("#5").append("<img class=card src=cards/" + rand + ".png>");
+    console.log("Player 5's score is " + scores[5] + " before the card is added")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed rand to 10");
+    };
+    scores[5] += rand;
+    console.log("Player 5's score is " + scores[5] + " after the card is added");
+    checkPlayers();
   }
 )
