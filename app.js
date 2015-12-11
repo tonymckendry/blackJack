@@ -1,5 +1,13 @@
 var count = 1;
 var players = ["dealer"];
+var scores =[];
+var player0Score = 0;
+var player1Score = 0;
+var player2Score = 0;
+var player3Score = 0;
+var player4Score = 0;
+var player5Score = 0;
+
 $("#playerNameButton").click(function(){
   var name= document.getElementById("playerInput").value;
   if (name == "" ){
@@ -57,33 +65,32 @@ $(document).on("click", "#startGame", function(){
 })
 
 $(document).on("click", "#deal", function(){
-console.log("dealt")
-for (var i = 0; i < players.length; i++) {
-  var rand = Math.round((Math.random()*(14-1)+1));
-  console.log("rand is " + rand)
-  players[i.score] = rand;
-  console.log("Player " + players[i] + " value is " + players[i.score])
-  $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button id=hit" + i + ">HIT</button>")
-  if (rand > 10) {
-    players[i.score] = 10;
-    console.log("changed" + + players[i] + "'s score to 10");
-  }
-  console.log("Player " + players[i] + " value is " + players[i.score] + "after the if")
-  }
-  $("#deal").remove();
-  $("#"+i).append("<button id=hit" + i + ">HIT</button>")
+  console.log("dealt")
+  for (var i = 0; i < players.length; i++) {
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("rand is " + rand)
+    scores[i] = rand;
+    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button id=hit" + i + ">HIT</button>")
+    if (rand > 10) {
+      score = 10;
+      console.log("changed" +  players[i] + "'s score to 10");
+    }
+    console.log("Player " + players[i] + " value is " + scores[i])
+    }
+    $("#deal").remove();
+    $("#"+i).append("<button id=hit" + i + ">HIT</button>")
 })
 
 $(document).on("click", "#hit1", function(){
-  for (var i = 0; i < players.length; i++) {
-    var rand = Math.round((Math.random()*(14-1)+1));
-    console.log("i is" + i);
-    console.log("the player is " + players[i]);
-    console.log("Player " + players[i] + "'s second card is " + rand);
-    console.log(players[i] + "'s score is " + players[i.score] + "before the card is added");
-    players[i.score] += rand;
-    console.log(players[i] + "'s score is " + players[i.score] + "after the card is added");
-
-    console.log("Player " + players[i] + "'s score is " + players[i.score]);
+    var rand = Math.round((Math.random()*(13-1)+1));
+    console.log("Player 1's second card is " + rand);
+    $("#1").append("<img class=card src=cards/" + rand + ".png>");
+    console.log("Player 1's score is " + scores[1] + " before the card is added")
+    if (rand > 10) {
+      rand = 10;
+      console.log("changed rand to 10");
+    };
+    scores[1] += rand;
+    console.log("Player 1's score is " + scores[1] + " after the card is added");
   }
-})
+)
