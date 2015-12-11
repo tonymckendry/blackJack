@@ -133,12 +133,16 @@ body {
   display: none;
 }
 
+#stay0{
+  display: none;
+}
+
 .hit{
   position: relative;
   bottom: -24vh;
   left: -40px;
-  display: block;
-  width: 10vw;
+  display: inline;
+  width: 8vw;
   height: 3vh;
   font-size: 1em;
   background-color: red;

@@ -70,7 +70,7 @@ $(document).on("click", "#deal", function(){
     var rand = Math.round((Math.random()*(13-1)+1));
     console.log("rand is " + rand)
     scores[i] = rand;
-    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button class=hit id=hit" + i + ">HIT</button>")
+    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button class=hit id=hit" + i + ">HIT</button><button class=hit id=stay" + i + ">STAY</button>")
     if (rand > 10) {
       rand = 10;
       console.log("changed" +  players[i] + "'s score to 10");
@@ -91,7 +91,7 @@ $(document).on("click", "#deal", function(){
     $("#deal").remove();
 })
 
-$(document).on("click", ".hit", function(){
+$(document).on("click", ".hit", function dealerHit(){
     var rand = Math.round((Math.random()*(13-1)+1));
     if (scores[0] <= 16){
       console.log("Dealer's next card is " + rand);
@@ -103,8 +103,10 @@ $(document).on("click", ".hit", function(){
       };
       scores[0] += rand;
       console.log("Dealer's score is " + scores[0] + " after the card is added");
+      dealerHit();
     }
     checkDealer();
+
 });
 
 var checkDealer = function(){
@@ -147,6 +149,11 @@ $(document).on("click", "#hit1", function(){
     scores[1] += rand;
     console.log("Player 1's score is " + scores[1] + " after the card is added");
     checkPlayers();
+  }
+)
+$(document).on("click", "#stay1", function(){
+    $("#1 button").remove()
+
   }
 )
 $(document).on("click", "#hit2", function(){
