@@ -80,7 +80,7 @@ $(document).on("click", "#deal", function(){
   for (var i = 0; i < players.length; i++) {
     var rand = Math.round((Math.random()*(13-1)+1));
     console.log("rand is " + rand)
-    $("#"+i).append("<img class=firstCard src=cards/" + rand + ".png><button class=hit id=hit" + i + ">HIT</button>")
+    $("#"+i).append("<img class=card src=cards/" + rand + ".png>")
     if (rand > 10) {
       rand = 10;
       console.log("changed" +  players[i] + "'s score to 10");
@@ -89,7 +89,6 @@ $(document).on("click", "#deal", function(){
     console.log("Player " + players[i] + " value is " + scores[i])
     }
     $("#deal").remove();
-    $("#"+i).append("<button id=hit" + i + ">HIT</button>")
 })
 
 $(document).on("click", ".hit", function(){
